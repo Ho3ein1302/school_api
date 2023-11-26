@@ -153,3 +153,40 @@ class HomeWork(BaseModel):
         verbose_name_plural = _('home works')
 
 
+class HomeWorkResponse(BaseModel):
+    body = models.TextField(
+        verbose_name=_('body')
+    )
+    attachment = models.FileField(
+        upload_to='homework/response/',
+        validators=[check_file_extension],
+        null=True,
+        blank=True,
+        verbose_name=_('attachment')
+    )
+    homework = models.ForeignKey(
+        to=HomeWork,
+        on_delete=models.CASCADE,
+        verbose_name=_('homework')
+    )
+    student = models.ForeignKey(
+        to=User,
+        on_delete=models.CASCADE,
+        verbose_name=_('student')
+    )
+
+    def __str__(self):
+        return f'{self.student.username} | {self.homework.__str__()}'
+
+    class Meta:
+        verbose_name = _('homework Response')
+        verbose_name_plural = _('homework Response')
+
+    def save(self, *args, **kwargs):
+        today = timezone.now().day
+        deadline_time_day = self.homework.deadline_time.day
+        this_month = timezone.now().month
+        deadline_time_month = self.homework.deadline_time.month
+        if today > deadline_time_day or this_month > deadline_time_month:
+            raise ValidationError(_('The time for sending the practice has ended.'))
+        return super().save(*args, **kwargs)
