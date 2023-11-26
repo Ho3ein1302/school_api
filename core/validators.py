@@ -1,4 +1,5 @@
 import re
+import os
 
 from django.core.exceptions import ValidationError
 from django.utils.translation import gettext as _
@@ -36,3 +37,10 @@ def check_landline_number(value: str):
         return str(value)
 
     raise ValidationError(_('landline_phone should be 11 character and start with 0'))
+
+
+def check_file_extension(value):
+    ext = os.path.splitext(value.name)[1]
+    valid_extensions = ['.pdf', '.zip']
+    if not ext.lower() in valid_extensions:
+        raise ValidationError('Unsupported file extension.')
