@@ -76,3 +76,26 @@ class HomeRoom(BaseModel):
         verbose_name_plural = _('classes')
 
 
+class News(BaseModel):
+    title = models.CharField(
+        max_length=300,
+        db_index=True,
+        verbose_name=_('Title')
+    )
+    body = models.TextField(
+        verbose_name=_('body')
+    )
+    home_room_id = models.ForeignKey(
+        to=HomeRoom,
+        on_delete=models.CASCADE,
+        verbose_name=_('class')
+    )
+
+    def __str__(self):
+        return f'{self.title} | {self.home_room_id.__str__()}'
+
+    class Meta:
+        verbose_name = _('News')
+        verbose_name_plural = _('News')
+
+
