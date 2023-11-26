@@ -5,21 +5,43 @@ from django.utils.translation import gettext as _
 
 from rest_framework.validators import ValidationError
 
-from .validators import check_landline_number
+from .validators import check_landline_number, check_file_extension
 from user.models import User
 
 
 class BaseModel(models.Model):
-    created_at = models.DateTimeField(auto_now_add=True, verbose_name='created at')
-    updated_at = models.DateTimeField(auto_now=True, verbose_name='updated at')
+    created_at = models.DateTimeField(
+        auto_now_add=True,
+        verbose_name='created at'
+    )
+    updated_at = models.DateTimeField(
+        auto_now=True,
+        verbose_name='updated at'
+    )
 
 
 class School(BaseModel):
-    name = models.CharField(max_length=300, db_index=True, verbose_name='name')
-    description = models.CharField(max_length=1000, blank=True, null=True, verbose_name='description')
-    landline_number = models.CharField(max_length=11, validators=[check_landline_number])
-    address = models.TextField(verbose_name='address')
-    location = model.GeometryField(geography=True, verbose_name='location')
+    name = models.CharField(
+        max_length=300,
+        db_index=True,
+        verbose_name='name'
+    )
+    description = models.CharField(
+        max_length=1000,
+        blank=True, null=True,
+        verbose_name='description'
+    )
+    landline_number = models.CharField(
+        max_length=11,
+        validators=[check_landline_number]
+    )
+    address = models.TextField(
+        verbose_name='address'
+    )
+    location = model.GeometryField(
+        geography=True,
+        verbose_name='location'
+    )
 
     def __str__(self):
         return self.name
@@ -88,7 +110,7 @@ class News(BaseModel):
     home_room_id = models.ForeignKey(
         to=HomeRoom,
         on_delete=models.CASCADE,
-        verbose_name=_('class')
+        verbose_name=_('homeroom')
     )
 
     def __str__(self):
@@ -97,5 +119,37 @@ class News(BaseModel):
     class Meta:
         verbose_name = _('News')
         verbose_name_plural = _('News')
+
+
+class HomeWork(BaseModel):
+    title = models.CharField(
+        max_length=400,
+        db_index=True,
+        verbose_name=_('Title'))
+    body = models.TextField(
+        verbose_name=_('body')
+    )
+    attachment = models.FileField(
+        upload_to='homework/',
+        validators=[check_file_extension],
+        null=True,
+        blank=True,
+        verbose_name=_('attachment')
+    )
+    homeroom_id = models.ForeignKey(
+        to=HomeRoom,
+        on_delete=models.CASCADE,
+        verbose_name=_('homeroom')
+    )
+    deadline_time = models.DateField(
+        verbose_name=_('deadline time')
+    )
+
+    def __str__(self):
+        return f'{self.title} | {self.homeroom_id.__str__()}'
+
+    class Meta:
+        verbose_name = _('Home work')
+        verbose_name_plural = _('home works')
 
 
