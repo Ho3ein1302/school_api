@@ -29,3 +29,10 @@ def check_phone(value: str) -> str:
 
 def check_code_meli(value: str) -> bool:
     return bool(value.isnumeric() and len(value) == 10)
+
+
+def check_landline_number(value: str):
+    if len(value) == 11 and value.startswith('0'):
+        return str(value)
+
+    raise ValidationError(_('landline_phone should be 11 character and start with 0'))
