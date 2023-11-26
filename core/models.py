@@ -43,3 +43,36 @@ class Course(BaseModel):
     class Meta:
         verbose_name = _('Course')
         verbose_name_plural = _('Courses')
+
+
+class HomeRoom(BaseModel):
+    school = models.ForeignKey(
+        to=School,
+        on_delete=models.CASCADE,
+        verbose_name=_('school')
+    )
+    teacher = models.ForeignKey(
+        to=User,
+        on_delete=models.CASCADE,
+        related_name='teacher',
+        verbose_name=_('teacher')
+    )
+    course = models.ForeignKey(
+        to=Course,
+        on_delete=models.CASCADE,
+        verbose_name=_('course')
+    )
+    students = models.ManyToManyField(
+        to=User,
+        related_name='students',
+        verbose_name=_('students')
+    )
+
+    def __str__(self):
+        return f'{self.school.name} | {self.teacher.username} | {self.course.name}'
+
+    class Meta:
+        verbose_name = _('class')
+        verbose_name_plural = _('classes')
+
+
