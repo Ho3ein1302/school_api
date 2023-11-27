@@ -19,6 +19,9 @@ class BaseModel(models.Model):
         verbose_name='updated at'
     )
 
+    class Meta:
+        abstract = True
+
 
 class School(BaseModel):
     name = models.CharField(
