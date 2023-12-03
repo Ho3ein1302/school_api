@@ -133,7 +133,7 @@ class NewsSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
-class HomeworkSerializer(serializers.ModelSerializer):
+class HomeWorkSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.HomeWork
         fields = '__all__'
