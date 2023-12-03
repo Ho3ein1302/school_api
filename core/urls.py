@@ -5,12 +5,12 @@ from . import views
 app_name = 'core'
 urlpatterns = [
     path(
-        'school/',
+        '',
         views.SchoolView.as_view(),
         name='school-list-create'
     ),
     path(
-        'school/detail/<int:pk>/',
+        '/detail/<int:pk>/',
         views.SchoolDetailView.as_view(),
         name='school-detail'
     ),
