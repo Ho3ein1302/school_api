@@ -17,3 +17,4 @@ PyYAML==6.0.1
 redis==5.0.1
 sqlparse==0.4.4
 uritemplate==4.1.1
+djangorestframework-gis~=1.0
