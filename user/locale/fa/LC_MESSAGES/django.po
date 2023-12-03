@@ -1,0 +1,88 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-12-03 17:17+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+#: user/models.py:13
+msgid "code_meli"
+msgstr "کد ملی"
+
+#: user/models.py:17
+msgid "phone number"
+msgstr "شماره موبایل"
+
+#: user/models.py:22
+msgid "bio"
+msgstr "بایوگرافی"
+
+#: user/models.py:35 user/serializers.py:52 user/serializers.py:56
+msgid "user"
+msgstr "کاربر"
+
+#: user/models.py:36
+msgid "users"
+msgstr "کربران"
+
+#: user/serializers.py:41
+msgid "username"
+msgstr "نام کاربری"
+
+#: user/serializers.py:46
+msgid "password"
+msgstr "رمز عبور"
+
+#: user/serializers.py:66 user/serializers.py:68 user/serializers.py:81
+#: user/serializers.py:100
+msgid "The username or password is not valid"
+msgstr "نام کاربری یا رمز عبور نامعتبر است"
+
+#: user/serializers.py:108 user/serializers.py:125
+msgid "refresh"
+msgstr ""
+
+#: user/serializers.py:117 user/serializers.py:138
+msgid "Token is invalid or expired"
+msgstr "توکن شما نامعتبر یا منقضی شده است"
+
+#: user/serializers.py:130 user/student/serializers.py:18
+#: user/teacher/serializers.py:27
+msgid "token"
+msgstr "توکن"
+
+#: user/student/serializers.py:16 user/teacher/serializers.py:17
+msgid "confirm password"
+msgstr "تایید رمز عبور"
+
+#: user/student/serializers.py:42 user/teacher/serializers.py:52
+msgid "The passwords must match"
+msgstr "رمزها باید یکسان باشند "
+
+#: user/teacher/serializers.py:101
+msgid "code meli"
+msgstr "کد ملی"
+
+#: user/teacher/serializers.py:117 user/teacher/serializers.py:127
+msgid "invalid code meli."
+msgstr "کد ملی نامعتبر است"
+
+#: user/teacher/views.py:37
+msgid "student add to class."
+msgstr "دانش اموز به کلاس اضافه شد"
+
+#: user/views.py:26
+msgid "logout OK."
+msgstr "شما خارج شدید"
