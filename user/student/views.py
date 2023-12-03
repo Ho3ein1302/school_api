@@ -20,7 +20,7 @@ class StudentProfileView(RetrieveUpdateAPIView):
     serializer_class = serializers.StudentProfileSerializer
 
 
-class StudentClassView(GenericAPIView):
+class StudentHomeRoomView(GenericAPIView):
     serializer_class = serializers.StudentHomeRoomSerializer
 
     def get(self, request: Request):
