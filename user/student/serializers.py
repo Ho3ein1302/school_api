@@ -103,7 +103,7 @@ class StudentNewsSerializer(serializers.ModelSerializer):
         fields = ['title', 'body', 'homeroom_id', 'created_at', 'updated_at']
 
 
-class StudentPracticeSerializer(serializers.ModelSerializer):
+class StudentHomeworkSerializer(serializers.ModelSerializer):
     class_id = StudentHomeRoomSerializer()
 
     class Meta:
@@ -111,7 +111,7 @@ class StudentPracticeSerializer(serializers.ModelSerializer):
         fields = ['title', 'body', 'attachment', 'homeroom_id', 'deadline_time', 'created_at', 'updated_at']
 
 
-class StudentPracticeResponseSerializer(serializers.ModelSerializer):
+class StudentHomeWorkResponseSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.HomeWorkResponse
         fields = '__all__'
