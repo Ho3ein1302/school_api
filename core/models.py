@@ -110,14 +110,14 @@ class News(BaseModel):
     body = models.TextField(
         verbose_name=_('body')
     )
-    home_room_id = models.ForeignKey(
+    homeroom_id = models.ForeignKey(
         to=HomeRoom,
         on_delete=models.CASCADE,
         verbose_name=_('homeroom')
     )
 
     def __str__(self):
-        return f'{self.title} | {self.home_room_id.__str__()}'
+        return f'{self.title} | {self.homeroom_id.__str__()}'
 
     class Meta:
         verbose_name = _('News')

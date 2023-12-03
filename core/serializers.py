@@ -10,6 +10,7 @@ class SchoolSerializer(GeoFeatureModelSerializer):
     class Meta:
         model = models.School
         fields = '__all__'
+        geo_field = 'location'
 
 
 class CourseSerializer(serializers.ModelSerializer):
