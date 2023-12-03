@@ -13,7 +13,10 @@ from core.utils import get_tokens
 class GroupSerializer(serializers.ModelSerializer):
     class Meta:
         model = Group
-        fields = ['id', 'name']
+        fields = [
+            'id',
+            'name'
+        ]
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -27,6 +30,7 @@ class UserSerializer(serializers.ModelSerializer):
             'last_name',
             'username',
             'phone_number',
+            'bio',
             'groups',
         ]
 
@@ -99,7 +103,7 @@ class UserLoginSerializer(serializers.Serializer):
 
 class UserLogoutSerializer(serializers.Serializer):
     refresh = serializers.CharField(
-        max_length=1000,
+        max_length=800,
         required=True,
         label=_('refresh')
     )
