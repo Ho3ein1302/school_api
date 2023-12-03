@@ -97,8 +97,8 @@ class HomeRoom(BaseModel):
         return f'{self.school.name} | {self.teacher.username} | {self.course.name}'
 
     class Meta:
-        verbose_name = _('class')
-        verbose_name_plural = _('classes')
+        verbose_name = _('home room')
+        verbose_name_plural = _('home rooms')
 
 
 class News(BaseModel):
@@ -191,5 +191,5 @@ class HomeWorkResponse(BaseModel):
         this_month = timezone.now().month
         deadline_time_month = self.homework.deadline_time.month
         if today > deadline_time_day or this_month > deadline_time_month:
-            raise ValidationError(_('The time for sending the practice has ended.'))
+            raise ValidationError(_('The time for sending the homework has ended.'))
         return super().save(*args, **kwargs)
