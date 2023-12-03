@@ -6,20 +6,6 @@ from django.utils.translation import gettext as _
 from core.validators import check_phone, check_code_meli
 
 
-class MyUserManager(UserManager):
-    class MyUserManager(UserManager):
-        """
-            Creating a new user manager for our customized django user.
-        """
-
-        def create_superuser(self, username=None, email=None, password=None, **extra_fields):
-            extra_fields.setdefault('first_name', 'admin')
-            return super().create_superuser(username, email, password, **extra_fields)
-
-        def create_user(self, username=None, email=None, password=None, **extra_fields):
-            return super().create_user(username, email, password, **extra_fields)
-
-
 class User(AbstractUser):
     code_meli = models.IntegerField(
         primary_key=True,
@@ -37,7 +23,6 @@ class User(AbstractUser):
         blank=True,
         null=True
     )
-    objects = MyUserManager()
 
     def __str__(self):
         return f'{self.last_name} | {self.code_meli}'

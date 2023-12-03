@@ -7,7 +7,7 @@ from rest_framework import serializers
 
 from user.models import User
 from core.utils import get_tokens
-from user.user_serializers import GroupSerializer
+from user.serializers import GroupSerializer
 from core import models
 
 
