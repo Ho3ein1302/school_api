@@ -10,7 +10,7 @@ urlpatterns = [
         name='school-list-create'
     ),
     path(
-        '/detail/<int:pk>/',
+        'detail/<int:pk>/',
         views.SchoolDetailView.as_view(),
         name='school-detail'
     ),
